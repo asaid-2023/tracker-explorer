@@ -84,3 +84,5 @@ build.fxbuild
 
 # Google drive
 .tmp.drive*
+
+.ds_store
