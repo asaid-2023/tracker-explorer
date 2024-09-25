@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.List;
 
 import lombok.Getter;
+import org.apache.commons.lang3.SystemUtils;
 import org.jetbrains.annotations.Nullable;
 
 import javafx.scene.control.Alert.AlertType;
@@ -35,10 +36,9 @@ public class Setting {
 	private static final File SETTING_FILE;
 	public static final File SETTING_DIRECTORY;
 
-	public static final boolean IS_WINDOWS = System.getProperty("os.name").toLowerCase().contains("win");
 
 	static {
-		if (IS_WINDOWS) {
+		if (SystemUtils.IS_OS_WINDOWS) {
 			SETTING_FILE = new File(System.getenv("APPDATA") + "\\Tracker Explorer\\TrackerExplorerSetting.txt");
 			SETTING_DIRECTORY = new File(System.getenv("APPDATA") + "\\Tracker Explorer");
 		} else {
