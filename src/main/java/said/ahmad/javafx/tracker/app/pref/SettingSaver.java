@@ -44,8 +44,14 @@ import said.ahmad.javafx.util.CallBackToDo;
  */
 @SuppressWarnings("deprecation")
 class SettingSaver {
-	private static File mSettingFileXML = new File(
-			System.getenv("APPDATA") + "\\Tracker Explorer\\TrackerExplorerSetting.xml");
+	private static File mSettingFileXML;
+	static {
+		if (System.getProperty("os.name").toLowerCase().contains("win")) {
+			mSettingFileXML = new File(System.getenv("APPDATA") + "\\Tracker Explorer\\TrackerExplorerSetting.xml");
+		} else {
+			mSettingFileXML = new File(System.getProperty("user.home") + "/Tracker Explorer/TrackerExplorerSetting.xml");
+		}
+	}
 	// only write if successfully read
 	private static boolean successfullyRead = true;
 	private static SettingSaver toBeSaved = new SettingSaver();

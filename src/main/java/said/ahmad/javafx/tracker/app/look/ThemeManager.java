@@ -27,7 +27,6 @@ public class ThemeManager {
 		case WINDOWS:
 			Style chosenStyle = appliedThemeColor.equals(THEME_COLOR.LIGHT) ? Style.LIGHT : Style.DARK;
 			JMetro jmetro = new JMetro();
-			jmetro.setAutomaticallyColorPanes(true);
 			jmetro.setStyle(chosenStyle);
 			jmetro.setScene(scene);
 			break;

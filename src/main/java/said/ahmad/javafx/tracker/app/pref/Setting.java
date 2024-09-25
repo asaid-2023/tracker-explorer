@@ -14,7 +14,6 @@ import lombok.Getter;
 import org.jetbrains.annotations.Nullable;
 
 import javafx.scene.control.Alert.AlertType;
-import lombok.Getter;
 import lombok.Setter;
 import said.ahmad.javafx.tracker.app.DialogHelper;
 import said.ahmad.javafx.tracker.app.StringHelper;
@@ -23,7 +22,6 @@ import said.ahmad.javafx.tracker.app.look.THEME_COLOR;
 import said.ahmad.javafx.tracker.datatype.FavoriteView;
 import said.ahmad.javafx.tracker.datatype.FavoriteViewList;
 import said.ahmad.javafx.tracker.datatype.UserContextMenu;
-import said.ahmad.javafx.tracker.system.call.CommandVariable;
 import said.ahmad.javafx.tracker.system.call.RunMenu;
 import said.ahmad.javafx.tracker.system.call.TeraCopy;
 import said.ahmad.javafx.tracker.system.file.PathLayer;
@@ -34,10 +32,20 @@ import said.ahmad.javafx.util.CallBackToDo;
 public class Setting {
 	// --------- Definitions ---------
 	private static final String PATH_SPLITTER = ";";
-	private static final File SETTING_FILE = new File(
-			System.getenv("APPDATA") + "\\Tracker Explorer\\TrackerExplorerSetting.txt");
-	public static final File SETTING_DIRECTORY = new File(System.getenv("APPDATA") + "\\Tracker Explorer");
+	private static final File SETTING_FILE;
+	public static final File SETTING_DIRECTORY;
 
+	public static final boolean IS_WINDOWS = System.getProperty("os.name").toLowerCase().contains("win");
+
+	static {
+		if (IS_WINDOWS) {
+			SETTING_FILE = new File(System.getenv("APPDATA") + "\\Tracker Explorer\\TrackerExplorerSetting.txt");
+			SETTING_DIRECTORY = new File(System.getenv("APPDATA") + "\\Tracker Explorer");
+		} else {
+			SETTING_FILE = new File(System.getProperty("user.home") + "/Tracker Explorer/TrackerExplorerSetting.txt");
+			SETTING_DIRECTORY = new File(System.getProperty("user.home") + "/Tracker Explorer");
+		}
+	}
 	// ---------------- Setting To be loaded as Part One TXT File ----------------
 	private static final String Version = "6.2";
 	/** @since v5.1 */
