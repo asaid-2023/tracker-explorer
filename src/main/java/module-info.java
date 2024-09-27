@@ -7,7 +7,6 @@ module said.ahmad.javafx {
     requires org.apache.commons.lang3;
     requires jsoniter;
     requires org.jetbrains.annotations;
-    requires java.desktop;
     requires mslinks;
     requires org.jfxtras.styles.jmetro;
     requires javafx.swing;
@@ -17,6 +16,7 @@ module said.ahmad.javafx {
     requires org.apache.commons.text;
     requires image4j;
     requires jdk.unsupported;
+    requires com.fasterxml.jackson.databind;
     exports said.ahmad.javafx.tracker.app;
     exports said.ahmad.javafx.tracker.controller;
     exports said.ahmad.javafx.tracker.datatype;

@@ -614,7 +614,7 @@ public class WelcomeController implements Initializable {
 		 * Set up reload XML setting
 		 */
 		reloadXMLSetting.setOnAction(e -> {
-			Setting.loadSettingPartTwo(null);
+			Setting.loadSettingPartTwo();
 			changeInSetting();
 		});
 
@@ -794,7 +794,7 @@ public class WelcomeController implements Initializable {
 	public void openFavoriteLocation(FavoriteView favoriteView, SplitViewController splitViewController) {
 		String error = "";
 		for (SplitViewState path : favoriteView.getSplitStates()) {
-			if (!path.getmDirectory().exists()) {
+			if (!path.getMDirectory().exists()) {
 				error += path.toString() + "\n\n";
 			}
 		}

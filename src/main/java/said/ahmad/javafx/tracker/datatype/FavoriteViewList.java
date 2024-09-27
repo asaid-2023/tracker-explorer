@@ -86,7 +86,7 @@ public class FavoriteViewList implements Iterable<FavoriteView> {
 	public FavoriteView getByFirstLoc(PathLayer firstLoc) {
 		for (FavoriteView favorite : map.values()) {
 			if (favorite.getSplitStates().size() != 0
-					&& favorite.getSplitStates().get(0).getmDirectory().equals(firstLoc)) {
+					&& favorite.getSplitStates().get(0).getMDirectory().equals(firstLoc)) {
 				return favorite;
 			}
 		}

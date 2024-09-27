@@ -35,14 +35,17 @@ public class Setting {
 	private static final String PATH_SPLITTER = ";";
 	private static final File SETTING_FILE;
 	public static final File SETTING_DIRECTORY;
+	public static final String SETTING_DIRECTORY_PATH;
 
 
 	static {
 		if (SystemUtils.IS_OS_WINDOWS) {
 			SETTING_FILE = new File(System.getenv("APPDATA") + "\\Tracker Explorer\\TrackerExplorerSetting.txt");
+			SETTING_DIRECTORY_PATH = System.getenv("APPDATA") + "\\Tracker Explorer";
 			SETTING_DIRECTORY = new File(System.getenv("APPDATA") + "\\Tracker Explorer");
 		} else {
 			SETTING_FILE = new File(System.getProperty("user.home") + "/Tracker Explorer/TrackerExplorerSetting.txt");
+			SETTING_DIRECTORY_PATH = System.getProperty("user.home") + "/Tracker Explorer";
 			SETTING_DIRECTORY = new File(System.getProperty("user.home") + "/Tracker Explorer");
 		}
 	}

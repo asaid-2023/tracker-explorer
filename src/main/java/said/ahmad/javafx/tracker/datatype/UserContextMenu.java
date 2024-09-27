@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.scene.image.Image;
 import lombok.Getter;
 import lombok.Setter;
@@ -193,19 +193,19 @@ public class UserContextMenu implements Cloneable {
 	/**
 	 * cached image of {@link #iconPath}
 	 */
-//	@XStreamOmitField
+	@JsonIgnore
 	private Image iconImage;
 
 	/**
 	 * cached image of {@link #pathToExecutable}
 	 */
-//	@XStreamOmitField
+	@JsonIgnore
 	private Image iconExec;
 
 	/**
 	 * cached image of {@link #parentIconPath}
 	 */
-//	@XStreamOmitField
+	@JsonIgnore
 	private Image parentIconImage;
 
 	/**
@@ -345,6 +345,7 @@ public class UserContextMenu implements Cloneable {
 	 *         {@link CallMethod#INNER_FUNCTION}, the path otherwise
 	 * @see PathLayerHelper#evaluateEnvVariableInPath(String)
 	 */
+	@JsonIgnore
 	public PathLayer getPathToExecutableAsPath() {
 		if (callMethod.equals(CallMethod.INNER_FUNCTION)) {
 			return null;
@@ -359,6 +360,7 @@ public class UserContextMenu implements Cloneable {
 	 * 
 	 * @return title representing the menu
 	 */
+	@JsonIgnore
 	public String getTitle() {
 		String title;
 		if (!StringHelper.isEmpty(getAlias())) {

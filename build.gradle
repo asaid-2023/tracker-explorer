@@ -78,6 +78,7 @@ dependencies {
     implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '3.0.3'
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.12.0'
     implementation group: 'org.jclarion', name: 'image4j', version: '0.7'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.0-rc1'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")

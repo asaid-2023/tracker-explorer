@@ -3496,7 +3496,7 @@ public class SplitViewController implements Initializable {
 
 	public void saveStateToSplitState(SplitViewState state) {
 		// Save current state view to state
-		state.setmDirectory(getmDirectoryPath());
+		state.setMDirectory(getmDirectoryPath());
 		state.setDirectoryViewOptions(getDirectoryViewOptions());
 		state.setAutoExpandRight(isAutoExpand());
 
@@ -3515,8 +3515,8 @@ public class SplitViewController implements Initializable {
 	}
 
 	public void restoreSplitViewStateWithoutQueue(SplitViewState state) {
-		if (mDirectory.compareTo(state.getmDirectory()) != 0) {
-			setmDirectoryThenRefresh(state.getmDirectory());
+		if (mDirectory.compareTo(state.getMDirectory()) != 0) {
+			setmDirectoryThenRefresh(state.getMDirectory());
 			// clear false change between tabs
 			if (BackQueue == state.getBackQueue()) {
 				RemoveLastFalseQueue();
