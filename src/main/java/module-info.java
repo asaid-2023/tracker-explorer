@@ -30,5 +30,8 @@ module said.ahmad.javafx {
     opens said.ahmad.javafx.tracker.controller.setting.base to javafx.fxml;
     opens said.ahmad.javafx.tracker.controller.connection to javafx.fxml;
     opens said.ahmad.javafx.tracker.datatype to jsoniter;
-    exports said.ahmad.javafx.fxGraphics to javafx.fxml;
+    opens said.ahmad.javafx.tracker.app.pref to com.fasterxml.jackson.databind;
+    opens said.ahmad.javafx.tracker.system.call to com.fasterxml.jackson.databind;
+    opens said.ahmad.javafx.fxGraphics to javafx.fxml;
+    exports said.ahmad.javafx.tracker.system.file;
 }

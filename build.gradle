@@ -78,7 +78,9 @@ dependencies {
     implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '3.0.3'
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.12.0'
     implementation group: 'org.jclarion', name: 'image4j', version: '0.7'
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.0-rc1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.17.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.17.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.17.2'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
@@ -128,6 +130,7 @@ prepareModulesDir {
 jlink {
     imageZip = project.file("${layout.buildDirectory}/distributions/app-${javafx.platform.classifier}.zip")
     options = ['--strip-debug', '--no-header-files', '--no-man-pages']
+    addExtraDependencies('jackson-annotations')
     launcher {
         name = 'app'
     }

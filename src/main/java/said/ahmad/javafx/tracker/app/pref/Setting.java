@@ -44,9 +44,10 @@ public class Setting {
 			SETTING_DIRECTORY_PATH = System.getenv("APPDATA") + "\\Tracker Explorer";
 			SETTING_DIRECTORY = new File(System.getenv("APPDATA") + "\\Tracker Explorer");
 		} else {
-			SETTING_FILE = new File(System.getProperty("user.home") + "/Tracker Explorer/TrackerExplorerSetting.txt");
-			SETTING_DIRECTORY_PATH = System.getProperty("user.home") + "/Tracker Explorer";
-			SETTING_DIRECTORY = new File(System.getProperty("user.home") + "/Tracker Explorer");
+			// we add . to make it hidden
+			SETTING_DIRECTORY_PATH = System.getProperty("user.home") + "/.Tracker-Explorer";
+			SETTING_FILE = new File(SETTING_DIRECTORY_PATH + "/TrackerExplorerSetting.txt");
+			SETTING_DIRECTORY = new File(SETTING_DIRECTORY_PATH);
 		}
 	}
 	// ---------------- Setting To be loaded as Part One TXT File ----------------
