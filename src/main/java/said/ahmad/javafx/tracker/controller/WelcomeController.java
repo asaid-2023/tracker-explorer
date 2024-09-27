@@ -783,7 +783,7 @@ public class WelcomeController implements Initializable {
 		 * Set up helpMenu
 		 */
 		aboutMenuItem.setOnAction(e -> DialogHelper.showAlert(Alert.AlertType.INFORMATION, "About", null,
-				"Tracker Explorer v" + Setting.getVersion() + "\n\n" + "Copyright C 2020 by Ahmad Said"));
+				"Tracker Explorer v" + Setting.getVersion() + "\n\n" + "Copyright C 2024 by Ahmad Said"));
 	}
 
 	@FXML

@@ -76,6 +76,7 @@ build.fxbuild
 /build
 /nbproject/private/
 /target/
+.gradle/
 
 # Intellij
 .idea/

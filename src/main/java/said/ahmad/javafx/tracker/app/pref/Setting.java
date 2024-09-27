@@ -47,7 +47,7 @@ public class Setting {
 		}
 	}
 	// ---------------- Setting To be loaded as Part One TXT File ----------------
-	private static final String Version = "6.2";
+	private static final String Version = "7.0";
 	/** @since v5.1 */
 	private static long ApplicationTimesLunched = 1;
 	/** @since v5.1 */
@@ -115,7 +115,7 @@ public class Setting {
 	public static void saveSetting() {
 		PrintStream p = null;
 		try {
-			File dirsetting = new File(System.getenv("APPDATA") + "\\Tracker Explorer");
+			File dirsetting = new File(SETTING_DIRECTORY.toString());
 			if (!dirsetting.exists()) {
 				Files.createDirectory(dirsetting.toPath());
 			}
@@ -310,7 +310,8 @@ public class Setting {
 	}
 
 	private static void migrateOldSetting() throws IOException {
-		File oldSettingfile = new File(System.getenv("APPDATA") + "\\FileTrackerSetting.txt");
+		String oldSettingName = "FileTrackerSetting.txt";
+		File oldSettingfile = new File(SETTING_DIRECTORY, oldSettingName);
 		if (oldSettingfile.exists()) {
 			oldSettingfile.renameTo(SETTING_FILE);
 			oldSettingfile.delete(); // if cannot move it delete it

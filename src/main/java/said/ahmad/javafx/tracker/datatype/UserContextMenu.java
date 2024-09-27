@@ -3,13 +3,12 @@ package said.ahmad.javafx.tracker.datatype;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import org.jetbrains.annotations.Nullable;
 
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import javafx.scene.image.Image;
 import lombok.Getter;
 import lombok.Setter;
+import org.jetbrains.annotations.Nullable;
 import said.ahmad.javafx.tracker.app.StringHelper;
 import said.ahmad.javafx.tracker.app.look.IconLoader;
 import said.ahmad.javafx.tracker.app.pref.Setting;
@@ -194,19 +193,19 @@ public class UserContextMenu implements Cloneable {
 	/**
 	 * cached image of {@link #iconPath}
 	 */
-	@XStreamOmitField
+//	@XStreamOmitField
 	private Image iconImage;
 
 	/**
 	 * cached image of {@link #pathToExecutable}
 	 */
-	@XStreamOmitField
+//	@XStreamOmitField
 	private Image iconExec;
 
 	/**
 	 * cached image of {@link #parentIconPath}
 	 */
-	@XStreamOmitField
+//	@XStreamOmitField
 	private Image parentIconImage;
 
 	/**

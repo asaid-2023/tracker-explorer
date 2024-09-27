@@ -10,9 +10,6 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.XStreamException;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import javafx.application.Platform;
 import said.ahmad.javafx.tracker.app.DialogHelper;
@@ -66,7 +63,7 @@ class SettingSaver {
 
 	/** @since v5.2 */
 	private ArrayList<FavoriteView> favoritesViews = new ArrayList<>();
-	@XStreamOmitField
+//	@XStreamOmitField
 	private ArrayList<FavoriteView_OldV5_2> favoritesLocations;
 
 	// misc stuff
@@ -128,35 +125,35 @@ class SettingSaver {
 		toBeSaved.userContextMenus = Setting.getUserContextMenus();
 	}
 
-	private static XStream getXStream() {
-		XStream xstream = new XStream();
-
-		xstream.alias("Tracker.Explorer.preferences", SettingSaver.class);
-
-		xstream.alias("PathLayer", PathLayer.class);
-		xstream.alias("LocalFile", FilePathLayer.class);
-		xstream.alias("FTPFile", FTPPathLayer.class);
-
-		// just to keep backward compatibility
-		xstream.alias("FavoriteView", FavoriteView_OldV5_2.class);
-		xstream.addImplicitCollection(FavoriteView_OldV5_2.class, "locations");
-
-		// replacement
-		xstream.alias("FavoriteViewStates", FavoriteView.class);
-		xstream.addImplicitCollection(FavoriteView.class, "splitStates");
-
-		xstream.alias("SplitViewState", SplitViewState.class);
-		xstream.processAnnotations(SplitViewState.class);
-
-		xstream.alias("UserContextMenu", UserContextMenu.class);
-		xstream.processAnnotations(UserContextMenu.class);
-
-		xstream.allowTypesByWildcard(new String[] { "said.ahmad.javafx.**" });
-		xstream.ignoreUnknownElements();
-
-		xstream.registerConverter(new PathLayerXMLConverter());
-		return xstream;
-	}
+//	private static XStream getXStream() {
+//		XStream xstream = new XStream();
+//
+//		xstream.alias("Tracker.Explorer.preferences", SettingSaver.class);
+//
+//		xstream.alias("PathLayer", PathLayer.class);
+//		xstream.alias("LocalFile", FilePathLayer.class);
+//		xstream.alias("FTPFile", FTPPathLayer.class);
+//
+//		// just to keep backward compatibility
+//		xstream.alias("FavoriteView", FavoriteView_OldV5_2.class);
+//		xstream.addImplicitCollection(FavoriteView_OldV5_2.class, "locations");
+//
+//		// replacement
+//		xstream.alias("FavoriteViewStates", FavoriteView.class);
+//		xstream.addImplicitCollection(FavoriteView.class, "splitStates");
+//
+//		xstream.alias("SplitViewState", SplitViewState.class);
+//		xstream.processAnnotations(SplitViewState.class);
+//
+//		xstream.alias("UserContextMenu", UserContextMenu.class);
+//		xstream.processAnnotations(UserContextMenu.class);
+//
+//		xstream.allowTypesByWildcard(new String[] { "said.ahmad.javafx.**" });
+//		xstream.ignoreUnknownElements();
+//
+//		xstream.registerConverter(new PathLayerXMLConverter());
+//		return xstream;
+//	}
 
 	public static void saveSetting() {
 		// Saving data to file
@@ -164,14 +161,14 @@ class SettingSaver {
 			return;
 		}
 		pullFromSetting();
-		try {
-			XStream xstream = getXStream();
-			OutputStream outputStream = new FileOutputStream(mSettingFileXML);
-			xstream.toXML(toBeSaved, outputStream);
-
-		} catch (Exception e) { // catches ANY exception
-			e.printStackTrace();
-		}
+//		try {
+//			XStream xstream = getXStream();
+//			OutputStream outputStream = new FileOutputStream(mSettingFileXML);
+//			xstream.toXML(toBeSaved, outputStream);
+//
+//		} catch (Exception e) { // catches ANY exception
+//			e.printStackTrace();
+//		}
 	}
 
 	/**
@@ -185,20 +182,20 @@ class SettingSaver {
 			callOnFinishLoadingPlatformRun(onFinishLoadingPlatformRun);
 			return;
 		}
-		XStream xstream = getXStream();
-		try {
-			toBeSaved = (SettingSaver) xstream.fromXML(mSettingFileXML);
-			pushToSetting();
-		} catch (XStreamException e) {
-			successfullyRead = false;
-			Platform.runLater(() -> {
-				successfullyRead = DialogHelper.showExpandableConfirmationDialog("Tracker Explorer",
-						"Something went Wrong loading XML Setting...",
-						"\nDo you want To Overwrite Setting Next Time?" + "\nWarning you will lose your setting!",
-						"File located at\n\t" + mSettingFileXML + "\n" + ExceptionUtils.getStackTrace(e));
-			});
-			e.printStackTrace();
-		}
+//		XStream xstream = getXStream();
+//		try {
+//			toBeSaved = (SettingSaver) xstream.fromXML(mSettingFileXML);
+//			pushToSetting();
+//		} catch (XStreamException e) {
+//			successfullyRead = false;
+//			Platform.runLater(() -> {
+//				successfullyRead = DialogHelper.showExpandableConfirmationDialog("Tracker Explorer",
+//						"Something went Wrong loading XML Setting...",
+//						"\nDo you want To Overwrite Setting Next Time?" + "\nWarning you will lose your setting!",
+//						"File located at\n\t" + mSettingFileXML + "\n" + ExceptionUtils.getStackTrace(e));
+//			});
+//			e.printStackTrace();
+//		}
 		callOnFinishLoadingPlatformRun(onFinishLoadingPlatformRun);
 	}
 

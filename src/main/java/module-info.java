@@ -1,0 +1,34 @@
+module said.ahmad.javafx {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires static lombok;
+    requires org.apache.commons.io;
+    requires org.apache.commons.net;
+    requires org.apache.commons.lang3;
+    requires jsoniter;
+    requires org.jetbrains.annotations;
+    requires java.desktop;
+    requires mslinks;
+    requires org.jfxtras.styles.jmetro;
+    requires javafx.swing;
+    requires com.google.common;
+    requires org.apache.pdfbox.io;
+    requires org.apache.pdfbox;
+    requires org.apache.commons.text;
+    requires image4j;
+    requires jdk.unsupported;
+    exports said.ahmad.javafx.tracker.app;
+    exports said.ahmad.javafx.tracker.controller;
+    exports said.ahmad.javafx.tracker.datatype;
+    exports said.ahmad.javafx.tracker.fxGraphics;
+    exports said.ahmad.javafx.tracker.model;
+    exports said.ahmad.javafx.tracker.system;
+    exports said.ahmad.javafx.util;
+    opens said.ahmad.javafx.tracker.controller to javafx.fxml;
+    opens said.ahmad.javafx.tracker.controller.splitview to javafx.fxml;
+    opens said.ahmad.javafx.tracker.controller.setting to javafx.fxml;
+    opens said.ahmad.javafx.tracker.controller.setting.base to javafx.fxml;
+    opens said.ahmad.javafx.tracker.controller.connection to javafx.fxml;
+    opens said.ahmad.javafx.tracker.datatype to jsoniter;
+    exports said.ahmad.javafx.fxGraphics to javafx.fxml;
+}

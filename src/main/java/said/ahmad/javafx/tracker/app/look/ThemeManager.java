@@ -22,7 +22,7 @@ public class ThemeManager {
 		case MODENAFX:
 			break;
 		case BOOTSTRAPV3:
-			scene.getStylesheets().add(ResourcesHelper.getResourceAsString("/css/bootstrap3.css"));
+			scene.getStylesheets().add(ResourcesHelper.getResourceAsURL("/css/bootstrap3.css").toString());
 			break;
 		case WINDOWS:
 			Style chosenStyle = appliedThemeColor.equals(THEME_COLOR.LIGHT) ? Style.LIGHT : Style.DARK;
@@ -33,7 +33,7 @@ public class ThemeManager {
 		default:
 			break;
 		}
-		scene.getStylesheets().add(ResourcesHelper.getResourceAsString("/css/base.css"));
+		scene.getStylesheets().add(ResourcesHelper.getResourceAsURL("/css/base.css").toString());
 		return appliedTheme;
 	}
 

@@ -3,7 +3,7 @@ package said.ahmad.javafx.tracker.datatype;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
+//import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import lombok.Data;
 import said.ahmad.javafx.tracker.app.pref.Setting;
@@ -40,14 +40,14 @@ public class SplitViewState {
 	private DirectoryViewOptions directoryViewOptions;
 	private boolean autoExpandRight;
 
-	@XStreamOmitField
+//	@XStreamOmitField
 	private LinkedList<PathLayer> backQueue;
-	@XStreamOmitField
+//	@XStreamOmitField
 	private LinkedList<PathLayer> nextQueue;
 
-	@XStreamOmitField
+//	@XStreamOmitField
 	private int[] selectedIndices;
-	@XStreamOmitField
+//	@XStreamOmitField
 	private int scrollTo;
 
 	private String searchKeyword;
